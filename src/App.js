@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Objects } from './object';
+import { Objex } from './dataTypes/objex/Objex';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Objects></Objects>
+        <Objex></Objex>
       </div>
     );
   }
