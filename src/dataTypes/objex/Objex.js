@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { LeftBrace } from './LeftBrace';
 import { RightBrace } from './RightBrace';
 import { AddFieldButton } from './AddFieldButton';
+import { Field } from './Field';
+
 
 export class Objex extends Component {
 constructor(props) {
@@ -11,17 +13,18 @@ constructor(props) {
 }
 
 addObjexFields(objex) {
+  let fields=[]
   for (var key in objex) {
-    return(
-      <div>
-        <p>"<span>{key}</span>"</p>
-      </div>
-    )
-    // console.log("Key: " + key);
-    // console.log("Value: " + objex[key]);
-    // console.log(typeof objex[key])
-    // console.log(Object.prototype.toString.call(objex[key]))
+    fields.push([key,objex[key],Object.prototype.toString.call(objex[key])])
   }
+
+  return(
+    <div>
+    {fields.map((field) => (
+      <Field key={field[0]} fieldName={field[0]} fieldData={field[1]} fieldType={field[2]}></Field>
+    ))}
+    </div>
+  )
 }
 
 buildObjex(objex) {
