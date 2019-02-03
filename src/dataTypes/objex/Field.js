@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StringField } from './StringField';
 import { NumberField } from './NumberField';
+import { BooleanField } from './BooleanField';
 
 
 
@@ -12,6 +13,7 @@ export class Field extends Component {
 
   buildField(fieldName, fieldData, fieldType) {
     console.log(fieldType)
+    console.log(fieldData)
 
     switch(fieldType) {
       case "[object String]":
@@ -21,6 +23,10 @@ export class Field extends Component {
       case "[object Number]":
         return(
           <NumberField fieldName={fieldName} fieldData={fieldData}></NumberField>
+        )
+      case "[object Boolean]":
+        return(
+          <BooleanField fieldName={fieldName} fieldData={fieldData}></BooleanField>
         )
       default:
       return(
