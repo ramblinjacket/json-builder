@@ -26,6 +26,8 @@ class App extends Component {
         "string": "potato",
         "number": 1,
         "boolean": true,
+        "List": ["potato", 1, true],
+        "Object1": {"string": "potato", "number": 1, "boolean": true, "Object2": {"little object": "woah it works!"}}
         }
     })
   }

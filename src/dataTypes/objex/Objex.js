@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ObjectName } from './ObjectName'
 import { LeftBrace } from './LeftBrace';
 import { RightBrace } from './RightBrace';
 import { AddFieldButton } from './AddFieldButton';
@@ -27,22 +28,24 @@ addObjexFields(objex) {
   )
 }
 
-buildObjex(objex) {
-  return (
-      <div>
-        <LeftBrace></LeftBrace>
-        {this.addObjexFields(objex)}
-        <AddFieldButton setEvent={this.props.setEvent}></AddFieldButton>
-        <RightBrace></RightBrace>
-      </div>
-  )
+buildObjex(objex,name) {
+    return (
+        <div>
+          <ObjectName name={name}></ObjectName>
+          <LeftBrace></LeftBrace>
+          <AddFieldButton setEvent={this.props.setEvent}></AddFieldButton>
+          {this.addObjexFields(objex)}
+          <RightBrace></RightBrace>
+        </div>
+    )
+
 }
 
 
   render() {
     return (
       <div>
-        {this.buildObjex(this.props.currentObject)}
+        {this.buildObjex(this.props.currentObject,this.props.objectName)}
       </div>
     );
   }
