@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class AddField extends Component {
+export class AddFieldButton extends Component {
 	addField = () => {
 		console.log("AddFieldClicked")
 	}

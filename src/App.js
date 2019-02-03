@@ -4,21 +4,39 @@ import { Objex } from './dataTypes/objex/Objex';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.setObject=this.setObject.bind(this)
+    this.setEvent=this.setEvent.bind(this)
   }
 
-  setObject(currentObject) {
-    this.setState({currentObject: currentObject});
+  componentWillMount() {
+    // this.setState({
+    //   currentObject: {
+    //     "string": "potato",
+    //     "number": 1,
+    //     "boolean": true,
+    //     "List": ["potato", 1, true, ["potato", 1, true], {"string": "potato", "number": 1, "boolean": true}],
+    //     "Object": {"string": "potato", "number": 1, "boolean": true}
+    //   }
+    // })
+    // this.setState({
+    //   currentObject: {
+    //   }
+    // })
+    this.setState({
+      currentObject: {
+        "string": "potato",
+        "number": 1,
+        }
+    })
   }
 
-  buildUI() {
-    return (<Objex setObject={this.setObject}></Objex>)
+  setEvent(event) {
+    this.setState({currentEvent: event});
   }
 
   render() {
     return (
       <div>
-        {this.buildUI()}
+       <Objex setEvent={this.setEvent} currentObject={this.state.currentObject}></Objex>
       </div>
     );
   }
