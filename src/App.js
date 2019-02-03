@@ -25,6 +25,7 @@ class App extends Component {
       currentObject: {
         "string": "potato",
         "number": 1,
+        "boolean": true,
         }
     })
   }
